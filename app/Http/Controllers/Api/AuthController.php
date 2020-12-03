@@ -66,4 +66,19 @@ class AuthController extends Controller
 
         }
     }
+    //untuk nyimpen username, lastname dan foto
+    public function saveUserInfo(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $photo = '';
+
+        if($request->photo!=''){
+            $photo = time().'.jpg';
+            //decode foto string dan save ke storage/profiles
+            file_put_contents('storage/profiles/'.$photo,base64_decode($request->photo));
+
+        }
+    }
 }
