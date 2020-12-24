@@ -21,6 +21,8 @@ class User extends Authenticatable implements JWTSubject
         'name', 'email', 'password',
     ];
 
+    protected $table = "tb_users";
+
     /**
      * The attributes that should be hidden for arrays.
      *

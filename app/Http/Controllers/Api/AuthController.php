@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Fakultas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Prodi;
 use App\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -89,6 +91,24 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'photo' => $photo
+        ]);
+    }
+
+    public function prodi()
+    {
+        $prodi = Prodi::all();
+        return response()->json([
+            'status' => true,
+            'prodi' => $prodi
+        ]);
+    }
+
+    public function fakultas()
+    {
+        $fakultas = Fakultas::all();
+        return response()->json([
+            'status' => true,
+            'prodi' => $fakultas
         ]);
     }
 }
