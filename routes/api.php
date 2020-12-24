@@ -17,4 +17,10 @@ use Illuminate\Http\Request;
 Route::post('login', 'Api\AuthController@login');
 Route::post('register', 'Api\AuthController@register');
 Route::get('logout', 'Api\AuthController@logout');
-Route::post('save_user_info', 'Api\AuthController@saveUserInfo')->middleware('jwtAuth');
+Route::post('save_user_info', 'Api\AuthController@saveUserInfo');
+
+//post SKP
+Route::post('posts/create', 'Api\PostsController@create')->middleware('jwtAuth');
+Route::post('posts/delete', 'Api\PostsController@delete')->middleware('jwtAuth');
+Route::post('posts/update', 'Api\PostsController@update')->middleware('jwtAuth');
+Route::get('posts', 'Api\PostsController@posts')->middleware('jwtAuth');
