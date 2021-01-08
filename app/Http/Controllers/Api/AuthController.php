@@ -28,6 +28,9 @@ class AuthController extends Controller
                 'message' => 'invalid credintials'
             ]);
         }
+        $user = User::find(Auth::user()->id);
+        $user->fcm_token = $request->fcm_token;
+        $user->update();
         return response()->json([
             'success' => true,
             'token' => $token,

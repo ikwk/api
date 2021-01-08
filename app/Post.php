@@ -10,8 +10,8 @@ class Post extends Model
 
     protected $table = "tb_posts";
 
-    public function post()
+    public function user()
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class, 'user_id','id');
     }
 }

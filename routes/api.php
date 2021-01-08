@@ -25,7 +25,9 @@ Route::get('prodi', 'Api\AuthController@prodi');
 Route::get('fakultas', 'Api\AuthController@fakultas');
 
 //post SKP
-Route::post('posts/create', 'Api\PostsController@create')->middleware('jwtAuth');
-Route::post('posts/delete', 'Api\PostsController@delete')->middleware('jwtAuth');
-Route::post('posts/update', 'Api\PostsController@update')->middleware('jwtAuth');
-Route::get('posts', 'Api\PostsController@posts')->middleware('jwtAuth');
+Route::post('posts/create', 'Api\PostsController@create');
+Route::post('posts/delete', 'Api\PostsController@delete');
+Route::post('posts/update', 'Api\PostsController@update');
+Route::get('posts', 'Api\PostsController@posts');
+
+// ->middleware('jwtAuth');
